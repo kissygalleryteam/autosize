@@ -1,0 +1,14 @@
+{
+    "name": "autosize",
+    "version": "1.0",
+    "desc": "textarea auto resize component",
+    "cover": "",
+    "tag":"0.1",
+    "author": {
+        "name": "Ê¯°Ô",
+        "email": "shiba@taobao.com",
+        "page": "http://github.com/lorrylockie"
+    },
+    "type": "kissy-gallery",
+    "type-url": "http://gallery.kissyui.com/guide"
+}
