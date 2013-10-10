@@ -1,7 +1,9 @@
 /**
- * @fileoverview
+ * @fileoverview 2013年10月10日 textarea高度根据内容自适应
  * @author shiba<shiba@taobao.com>
  * @module autosize textarea
+ * @version 1.0
+ * @improvement from http://www.jacklmoore.com/autosize/
  **/
 KISSY.add(function (S, Node, Base) {
     var $ = Node.all;
@@ -16,7 +18,6 @@ KISSY.add(function (S, Node, Base) {
 
         //mix config
         var cfg = {
-            append: '',
             callback: false,
             resizeDelay: 10
         };
@@ -174,7 +175,7 @@ KISSY.add(function (S, Node, Base) {
                         setWidth();
                     }
 
-                    self.mirror.value = ta.value + options.append;
+                    self.mirror.value = ta.value;
                     self.mirror.style.overflowY = ta.style.overflowY;
                     original = parseInt(ta.style.height, 10);
 
@@ -216,7 +217,7 @@ KISSY.add(function (S, Node, Base) {
                             width = newWidth;
                             adjust();
                         }
-                    }, parseInt(options.resizeDelay, 10));
+                    }, options.resizeDelay);
                 }
 
                 if ('onpropertychange' in ta) {
@@ -257,7 +258,7 @@ KISSY.add(function (S, Node, Base) {
                 });
 
                 $ta.on('autosize.destroy', function () {
-                    mirrored = null;
+                    self.mirrored = null;
                     clearTimeout(timeout);
                     $(window).off('resize', resize);
                     $ta
