@@ -48,7 +48,7 @@ kissy1.2下需要gallery的包配置：
 ## API说明
 
 ### Class
-    Autosize
+Autosize
 
 ### 参数说明
 
