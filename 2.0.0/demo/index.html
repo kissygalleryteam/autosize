@@ -1,63 +1,43 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8"/>
-<title>autosize的demo</title>
-<link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.3.0/css/dpl/base-min.css">
-<script src="http://g.tbcdn.cn/kissy/k/1.3.0/kissy-min.js" charset="utf-8"></script>
-<style type="text/css">
-    #ta1, #ta2 {
-        width: 200px;
-        padding: 10px;
-        background: #fff;
-        overflow: hidden;
-    }
-
-    #ta2 {
-        vertical-align: top;
-        transition: height 0.2s;
-        -webkit-transition: height 0.2s;
-        -moz-transition: height 0.2s;
-    }
-</style>
-<script>var S = KISSY;S.config({packages:[{name:"kg",path:"http://g.tbcdn.cn/kg/",charset:"utf-8",ignorePackageNameInUri:true}]});if (S.Config.debug){var srcPath = "../";S.config({packages:[{name:"kg/autosize/2.0.0",path:srcPath,charset:"utf-8",ignorePackageNameInUri:true}]});}</script></head>
+    <meta charset="utf-8"/>
+    <title>Autosize的demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.3.0/css/dpl/base-min.css">
+</head>
 <body>
-<h2>autosize的demo</h2>
-
-<textarea id="ta1" name="" class="sel" id="3" cols="30" rows="10">Autosize with no animation.</textarea>
-<textarea id="ta2" name="" class="sel" id="1" cols="30" rows="10">Autosize with a CSS transition. Try typing something...</textarea>
-
-<p><button id="J_Trigger">autotrigger</button></p>
+<h2>Autosize的demo</h2>
 
 <script>
     var S = KISSY;
+    S.config({
+        packages:[
+            {
+                name:"kg",
+                path:"http://g.tbcdn.cn/kg/",
+                charset:"utf-8",
+                ignorePackageNameInUri:true
+            }
+        ]
+    });
+
     if (S.Config.debug) {
-        var srcPath = "../../../";
+        var srcPath = "../";
         S.config({
-            packages: [
+            packages:[
                 {
-                    name:"gallery-back",
-                    path: srcPath,
-                    charset: "utf-8",
-                    ignorePackageNameInUri: true
+                    name:"kg/autosize/2.0.0",
+                    path:srcPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
                 }
             ]
         });
     }
 
     S.use('kg/autosize/2.0.0/index', function (S, Autosize) {
-        new Autosize({
-            node: ".sel",
-            callback: function () {
-                console.log(arguments);
-            }
-        });
-        KISSY.Event.on('#J_Trigger', 'click', function (e) {
-            e.halt();
-            var str = 'auto trigger resize auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   auto trigger resize   --   ';
-            KISSY.DOM.val('#ta1',  KISSY.DOM.val('#ta1')+str);
-            KISSY.Event.fire('#ta1', 'autosize.resize');
-        })
+          new Autosize();
     })
 </script>
 </body>
